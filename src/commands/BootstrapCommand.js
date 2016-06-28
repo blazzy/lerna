@@ -341,7 +341,7 @@ export default class BootstrapCommand extends Command {
    */
   symlinkPackages(callback) {
     this.logger.info("Symlinking packages to root");
-    const destFolder = path.join(this.repository.rootPath, "node_modules");
+    const destFolder = path.join(this.repository.packagesLocation, "node_modules");
     const actions = [cb => FileSystemUtilities.mkdirp(destFolder, cb)];
     this.packages.forEach(pkg => {
       const srcPackageLocation = path.join(this.repository.packagesLocation, pkg.name);
